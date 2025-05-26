@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { BookOpen, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,14 +11,14 @@ export const Navigation = () => {
     <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/20 border-b border-white/20 shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <div className="p-2 rounded-xl bg-white/30 backdrop-blur-sm shadow-inner">
               <BookOpen className="h-6 w-6 text-comic-red" />
             </div>
             <span className="comic-title text-2xl font-bold text-gray-800">
               Story Spark
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -30,9 +31,11 @@ export const Navigation = () => {
             <a href="#community" className="text-gray-700 hover:text-comic-red transition-colors font-medium">
               Community
             </a>
-            <Button className="bg-white/30 backdrop-blur-sm text-gray-800 border border-white/40 hover:bg-white/40 shadow-lg hover:shadow-xl transition-all duration-300">
-              Get Started
-            </Button>
+            <Link to="/login">
+              <Button className="bg-white/30 backdrop-blur-sm text-gray-800 border border-white/40 hover:bg-white/40 shadow-lg hover:shadow-xl transition-all duration-300">
+                Log In
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -60,9 +63,11 @@ export const Navigation = () => {
             <a href="#community" className="block py-2 px-4 text-gray-700 hover:text-comic-red hover:bg-white/20 rounded-lg transition-colors">
               Community
             </a>
-            <Button className="w-full mt-4 mx-4 bg-white/30 backdrop-blur-sm text-gray-800 border border-white/40 hover:bg-white/40 shadow-lg">
-              Get Started
-            </Button>
+            <Link to="/login" className="block mt-4 mx-4">
+              <Button className="w-full bg-white/30 backdrop-blur-sm text-gray-800 border border-white/40 hover:bg-white/40 shadow-lg">
+                Log In
+              </Button>
+            </Link>
           </div>
         )}
       </div>
